@@ -1,6 +1,12 @@
-# zenyminer
+# MinerGuide
 
-> A Vue.js project
+CPUMiner setting guide Web Application project.
+
+## Dependencies Stack
+
+- Vue
+- Vue-i18n
+- SCSS
 
 ## Build Setup
 
