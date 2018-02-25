@@ -13,7 +13,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vue": "^2.5.2"
+    "scss-loader": "0.0.1",
+    "vue": "^2.5.2",
+    "vue-i18n": "^7.4.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
