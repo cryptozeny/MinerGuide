@@ -1,0 +1,14 @@
+{
+  "title": "MinerGuide",
+  "lang_select": "언어 선택",
+  "hero_welcome_message": "MinerGuide는 BitZeny를 채굴할 수 있는 CPUMiner 프로그램의 설정을 도와드리기 위한 웹페이지입니다.\n해당 웹페이지에 나온 과정대로 설정하시면 손쉽게 설정이 가능합니다.",
+  "select_device": "채굴에 사용하실 장비를 선택해주세요",
+  "select_device_self": "현재 접속한 장비로 사용",
+  "select_device_other": "다른 장비로 사용",
+  "select_automation": "권장 설정을 이용합니다",
+  "select_os_message": "사용하실 운영체제를 선택해주세요",
+  "select_thread": "채굴에 사용하실 코어를 선택해주세요.",
+  "select_thread_count": "전체 스레드 갯수",
+  "select_thread_description": "스레드는 CPU의 작업가능한 인원수입니다. 예를 들자면, 4코어 8스레드의 CPU라면 8개까지 끌어와 채굴 진행이 가능합니다",
+  "select_thread_warn_all": "코어를 전부 사용하시면 다중작업시 시스템 끊김등의 문제가 발생할수 있습니다.",
+}
