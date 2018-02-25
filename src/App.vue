@@ -13,6 +13,8 @@ import Setup from './components/setup'
 import Guides from './components/guide/default'
 import Footer from './components/footer'
 
+import 'normalize.css'
+
 export default {
   name: 'MinerGuide',
   components: {
