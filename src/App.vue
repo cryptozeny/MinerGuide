@@ -1,16 +1,25 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <Header />
+    <Setup />
+    <Guides />
+    <Footer />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Header from './components/header'
+import Setup from './components/setup'
+import Guides from './components/guide/default'
+import Footer from './components/footer'
 
 export default {
-  name: 'App',
+  name: 'MinerGuide',
   components: {
-    HelloWorld
+    Header,
+    Setup,
+    Guides,
+    Footer
   },
   data () {
     return {
@@ -32,13 +41,5 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
 </style>
