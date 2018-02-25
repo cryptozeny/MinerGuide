@@ -14,6 +14,7 @@ import Guides from './components/guide/default'
 import Footer from './components/footer'
 
 import 'normalize.css'
+import './assets/style.scss'
 
 export default {
   name: 'MinerGuide',
@@ -42,6 +43,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-</style>
