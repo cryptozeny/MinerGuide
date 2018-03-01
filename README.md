@@ -6,6 +6,8 @@ CPUMiner setting guide Web Application project.
 
 - Vue
 - Vue-i18n
+- Webpack
+- Babel
 - SCSS
 
 ## Build Setup
