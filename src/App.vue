@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import Header from './components/header'
+import Header from './components/layout/header'
 import Setup from './components/setup'
 import Guides from './components/guide/default'
-import Footer from './components/footer'
+import Footer from './components/layout/footer'
 
 import 'normalize.css'
 import './assets/style.scss'
