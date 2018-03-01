@@ -5,3 +5,64 @@ body {
   margin:0;
   padding:0;
 }
+
+.container {
+  width:960px;
+  margin:0 auto;
+}
+
+#header {
+  border-bottom:1px solid $oc-gray-2;
+  box-shadow:0 0 6px $oc-gray-0;
+  box-sizing:border-box;
+  padding:12px 18px;
+
+  & > .container {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+  }
+}
+
+#header h1 {
+  margin:0;
+  padding:0;
+  font-size:14pt;
+  display:inline-block;
+  vertical-align:middle;
+  flex:1 0 auto;
+  color:$oc-gray-9;
+
+  & > span.sub {
+    display:block;
+    font-size:10pt;
+    font-weight:normal;
+    color:$oc-gray-6;
+  }
+}
+
+#header nav#header-nav {
+  display:inline-block;
+  vertical-align:middle;
+
+  & > ul {
+    font-size:0;
+    list-style:none;
+    margin:0;
+    padding:0;
+
+    & > li {
+      display:inline-block;
+      font-size:10pt;
+
+      & > a {
+        text-decoration:none;
+        color:$oc-gray-9;
+      }
+    }
+
+    & > li + li {
+      margin-left:24px;
+    }
+  }
+}
