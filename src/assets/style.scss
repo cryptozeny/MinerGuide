@@ -4,6 +4,8 @@ html,
 body {
   margin:0;
   padding:0;
+  height:100%;
+  min-height:100%;
 }
 
 .container {
@@ -62,6 +64,42 @@ body {
     }
 
     & > li + li {
+      margin-left:24px;
+    }
+  }
+}
+
+#footer {
+  border-top:1px solid $oc-gray-2;
+  padding:12px 18px;
+
+  p.copyright {
+    font-size:12pt;
+    color:$oc-gray-9;
+
+    & > span.disclaimer {
+      color:$oc-gray-6;
+    }
+  }
+
+  nav.footer-nav > ul {
+    list-style:none;
+    margin:0;
+    padding:1rem 0 0;
+    font-size:0;
+    border-top:1px solid $oc-gray-1;
+
+    & > li {
+      font-size:12pt;
+      display:inline-block;
+
+      & > a {
+        display:block;
+        color:$oc-gray-6;
+      }
+    }
+
+    li + li {
       margin-left:24px;
     }
   }
