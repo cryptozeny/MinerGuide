@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <Header />
-    <Setup v-show="currentAction === 'setup'" />
-    <Guides v-show="currentAction === 'guide'" />
+    <transition name="action">
+      <Setup v-show="currentAction === 'setup'" />
+      <Guides v-show="currentAction === 'guide'" />
+    </transition>
     <Footer />
   </div>
 </template>
