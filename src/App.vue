@@ -31,7 +31,7 @@ export default {
       currentAction: 'setup',
       setup: {
         currentStep: 0,
-        availableCpuThread: 0
+        availableCPUThread: 0
       },
       result: {
         OS: undefined,
