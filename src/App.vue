@@ -2,8 +2,8 @@
   <div id="app">
     <Header />
     <transition name="action">
-      <Setup v-show="currentAction === 'setup'" />
-      <Guides v-show="currentAction === 'guide'" />
+      <Setup v-if="currentAction === 'setup'" />
+      <Guides v-if="currentAction === 'guide'" />
     </transition>
     <Footer />
   </div>
