@@ -6,7 +6,6 @@
       <SystemResource v-if="$parent.setup.currentStep === 2" />
       <MiningPool v-if="$parent.setup.currentStep === 3" />
     </transition>
-    <a href="#" @click.prevent="getSystemInformation">Button</a>
   </section>
 </template>
 
