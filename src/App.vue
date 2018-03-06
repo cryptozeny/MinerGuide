@@ -16,6 +16,7 @@ import Guides from './components/guide/default'
 import Footer from './components/layout/footer'
 
 import 'normalize.css'
+import './assets/pool-chan.scss'
 import './assets/style.scss'
 import '../static/css/Spoqa-Han-Sans.css'
 import '../static/css/fontawesome-all.min.css'
