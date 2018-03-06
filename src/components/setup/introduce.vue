@@ -51,7 +51,11 @@ export default {
     }
   },
   methods: {
-    AcceptCurrentEnv () {
+    AcceptCurrentEnv (event) {
+      if (event.target.getAttribute('disabled') === 'disabled') {
+        return false
+      }
+
       this.$parent.$parent.result.OS = navigator.platform
       this.$parent.$parent.setup.availableCPUThread = navigator.hardwareConcurrency
       this.$parent.$parent.setup.currentStep = 2
