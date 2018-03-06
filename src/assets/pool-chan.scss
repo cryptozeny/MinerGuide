@@ -18,7 +18,7 @@
   flex-direction:row;
   width:100%;
   margin:0 12px;
-  padding:6px 12px;
+  padding:12px;
   vertical-align:middle;
   border:1px solid $oc-blue-3;
   cursor:pointer;
@@ -47,10 +47,10 @@
       background-color:rgba(255, 255, 255, 0.75);
       left:0;
       top:0;
-      line-height:360px;
       font-weight:bold;
       font-size:14pt;
-      content:"해당 기기에서는 마이닝이 불가능합니다";
+      word-break:keep-all;
+      box-sizing:border-box;
     }
   }
 

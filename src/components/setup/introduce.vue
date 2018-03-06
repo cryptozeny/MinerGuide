@@ -79,5 +79,9 @@ export default {
       font-size:1.25rem;
       color:$oc-gray-6;
     }
+
+    &[disabled="disabled"]::after {
+      content:"해당 기기에서는 마이닝이 불가능합니다";
+    }
   }
 </style>
