@@ -34,7 +34,8 @@ export default {
       currentAction: 'setup',
       setup: {
         currentStep: 0,
-        availableCPUThread: 0
+        availableCPUThread: 0,
+        usingCPUThread: []
       },
       result: {
         OS: undefined,
