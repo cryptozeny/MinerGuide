@@ -17,6 +17,8 @@ import Footer from './components/layout/footer'
 
 import 'normalize.css'
 import './assets/style.scss'
+import '../static/css/Spoqa-Han-Sans.css'
+import '../static/css/fontawesome-all.min.css'
 
 export default {
   name: 'MinerGuide',

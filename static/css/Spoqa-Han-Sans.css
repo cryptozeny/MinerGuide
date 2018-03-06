@@ -26,7 +26,6 @@
     font-weight: 700;
     src: local('Spoqa Han Sans Bold'),
     url('../fonts/SpoqaHanSansBold.woff2') format('woff2'),
-    url('../fonts/SpoqaHanSansBold.woff') format('woff'),
     url('../fonts/SpoqaHanSansBold.ttf') format('truetype');
 }
 
