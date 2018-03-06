@@ -45,7 +45,7 @@ export default {
       this.usingOS = 'windows'
     // Apple Mac OSX
     } else if (currentOS === 'MacIntel') {
-      this.usingOS = 'apple'
+      this.usingOS = 'osx'
     } else if (currentOS.indexOf('Linux')) {
       this.usingOS = 'linux'
     }
