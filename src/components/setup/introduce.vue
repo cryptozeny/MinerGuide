@@ -49,6 +49,9 @@ export default {
     } else if (currentOS.indexOf('Linux')) {
       this.usingOS = 'linux'
     }
+
+    this.$parent.$parent.result.OS = undefined
+    this.$parent.$parent.setup.availableCPUThread = 1
   },
   methods: {
     AcceptCurrentEnv (event) {
