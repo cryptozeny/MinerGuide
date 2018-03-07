@@ -19,6 +19,17 @@
       </div>
       <div class="thread_display">
         <h2>스레드 활용 확인</h2>
+        <div class="thread_counter">
+          <table>
+            <tbody>
+              <tr v-for="value in targetBoardSize">
+                <td v-for="list in usingThread">
+                  {{ list }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -29,17 +40,41 @@ export default {
   data () {
     return {
       availableCPUThread: this.$parent.$parent.setup.availableCPUThread,
-      usingThread: []
+      usingThread: [],
+      targetBoardSize: 2
     }
+  },
+  mounted () {
+    this.getBoardSize(this.availableCPUThread)
+    this.makeThreadList()
   },
   methods: {
     makeThreadList () {
-      
+      this.usingThread = []
+      for (let i = 0; i < Math.pow(this.targetBoardSize, 2); i++) {
+        this.usingThread.push(0)
+      }
+    },
+    getBoardSize (val) {
+      if (val > 5 && val < 65) {
+        this.targetBoardSize = Math.floor(Math.sqrt(val)) + Number(Math.sqrt(val) % 1 !== 0)
+      } else if (val <= 4) {
+        this.targetBoardSize = 2
+      } else {
+        this.targetBoardSize = 8
+      }
     }
   },
   watch: {
-    'availableCPUThread': (val, oldVal) => {
+    'availableCPUThread': function (val) {
+      if (val > 64) {
+        this.availableCPUThread = 64
+      } else if (val < 1) {
+        this.availableCPUThread = 1
+      }
 
+      this.getBoardSize(val)
+      this.makeThreadList()
     }
   }
 }
