@@ -19,17 +19,21 @@
       </div>
       <div class="thread_display">
         <h2>스레드 활용 확인</h2>
-        <div class="thread_counter">
-          <table>
-            <tbody>
-              <tr v-for="value in targetBoardSize">
-                <td v-for="list in usingThread">
-                  {{ list }}
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <table class="thread_counter">
+          <tbody>
+            <tr v-for="row in targetBoardSize" :key="row">
+              <td v-for="column in targetBoardSize"
+                  :key="column">
+                <label>
+                  {{ (row-1)*targetBoardSize+column-1 }}
+                  <input type="checkbox"
+                         v-model="usingThread[(row-1)*targetBoardSize+column-1]"
+                         :disabled="usingThread[(row-1)*targetBoardSize+column-1] === undefined"/>
+                </label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -51,12 +55,12 @@ export default {
   methods: {
     makeThreadList () {
       this.usingThread = []
-      for (let i = 0; i < Math.pow(this.targetBoardSize, 2); i++) {
+      for (let i = 0; i < this.availableCPUThread; i++) {
         this.usingThread.push(0)
       }
     },
     getBoardSize (val) {
-      if (val > 5 && val < 65) {
+      if (val > 4 && val < 65) {
         this.targetBoardSize = Math.floor(Math.sqrt(val)) + Number(Math.sqrt(val) % 1 !== 0)
       } else if (val <= 4) {
         this.targetBoardSize = 2
@@ -79,3 +83,35 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .pc-box-flex > div {
+    width:100%;
+  }
+
+  .thread_counter {
+    width:100%;
+    border-collapse:collapse;
+    border:0;
+
+    td {
+      height:100%;
+      position:relative;
+    }
+    td:after {
+      content: '';
+      display: block;
+      margin-top: 100%;
+    }
+    td > label {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display:block;
+      width:100%;
+      height:100%;
+    }
+  }
+</style>
