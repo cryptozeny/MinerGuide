@@ -30,22 +30,28 @@
     </div>
 
     <div class="pc-box-flex pc-flex-row">
-      <div class="pc-button pc-box-flex pc-flex-row" disabled="disabled">
+      <div class="pc-button pc-box-flex pc-flex-row"
+           disabled="disabled"
+           data-disabled-reason="해당 운영체제에 대한 가이드는 준비중입니다">
         <div class="wrap">
           <h2>Raspberry Pi</h2>
           <p>Raspberry Pi 2, Raspberry Pi 2 Model B, Raspberry Pi 3, Raspberry Pi 3 Model B</p>
         </div>
       </div>
 
-      <div class="pc-button pc-box-flex pc-flex-row" @click="changeOS('android')">
+      <div class="pc-button pc-box-flex pc-flex-row"
+           disabled="disabled"
+           data-disabled-reason="해당 운영체제에 대한 가이드는 준비중입니다">
         <div class="wrap">
           <i class="fab fa-android"></i>
           <h2>Android</h2>
-          <p>Galaxy, Pixel, LG, HTC, Sony, Xioami, Huwawei, Others.</p>
+          <p>Galaxy, Pixel, LG, HTC, Sony, Sharp, Xioami, Huwawei, Others.</p>
         </div>
       </div>
 
-      <div class="pc-button pc-box-flex pc-flex-row" disabled="disabled">
+      <div class="pc-button pc-box-flex pc-flex-row"
+           disabled="disabled"
+           data-disabled-reason="해당 운영체제는 현재 마이닝이 불가능합니다.">
         <div class="wrap">
           <i class="fab fa-apple"></i>
           <h2>iOS</h2>
@@ -87,7 +93,7 @@ export default {
     }
 
     &[disabled="disabled"]::after {
-      content:"해당 운영체제에 대한 가이드는 준비중입니다";
+      content:attr(data-disabled-reason);
       padding:80px 40px 0;
     }
   }

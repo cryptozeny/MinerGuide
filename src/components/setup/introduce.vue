@@ -10,7 +10,8 @@
     <div class="pc-box-flex pc-flex-row">
       <div class="pc-box-flex pc-flex-row pc-button pc-button-large"
            @click.prevent="AcceptCurrentEnv"
-           :disabled="usingOS === false">
+           :disabled="usingOS === false"
+           data-disabled-reason="해당 운영체제/기기에 대한 가이드는 준비중이거나 마이닝이 불가능합니다">
         <div class="wrap">
           <i v-if="usingOS !== false"
              class="fab"
@@ -89,7 +90,9 @@ export default {
     }
 
     &[disabled="disabled"]::after {
-      content:"해당 기기에서는 마이닝이 불가능합니다";
+      content:attr(data-disabled-reason);
+      color:$oc-gray-9;
+      line-height:360px;
     }
   }
 </style>
