@@ -4,7 +4,7 @@
     <p>운영체제를 선택하시면 기기도 같이 선택됩니다. 운영체제를 모르신다면 운영체제 아래에 적혀있는 대표기기를 통해 확인해주세요.</p>
 
     <div class="pc-box-flex pc-flex-row">
-      <div class="pc-button" @click="changeOS('windows')">
+      <div class="pc-button pc-box-flex pc-flex-row" @click="changeOS('windows')">
         <div class="wrap">
           <i class="fab fa-windows"></i>
           <h2>Windows</h2>
@@ -12,7 +12,7 @@
         </div>
       </div>
 
-      <div class="pc-button" @click="changeOS('osx')">
+      <div class="pc-button pc-box-flex pc-flex-row" @click="changeOS('osx')">
         <div class="wrap">
           <i class="fab fa-apple"></i>
           <h2>Mac OS X</h2>
@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class="pc-button" @click="changeOS('linux')">
+      <div class="pc-button pc-box-flex pc-flex-row" @click="changeOS('linux')">
         <div class="wrap">
           <i class="fab fa-linux"></i>
           <h2>Linux</h2>
@@ -30,14 +30,14 @@
     </div>
 
     <div class="pc-box-flex pc-flex-row">
-      <div class="pc-button" disabled="disabled">
+      <div class="pc-button pc-box-flex pc-flex-row" disabled="disabled">
         <div class="wrap">
           <h2>Raspberry Pi</h2>
           <p>Raspberry Pi 2, Raspberry Pi 2 Model B, Raspberry Pi 3, Raspberry Pi 3 Model B</p>
         </div>
       </div>
 
-      <div class="pc-button" @click="changeOS('android')">
+      <div class="pc-button pc-box-flex pc-flex-row" @click="changeOS('android')">
         <div class="wrap">
           <i class="fab fa-android"></i>
           <h2>Android</h2>
@@ -45,7 +45,7 @@
         </div>
       </div>
 
-      <div class="pc-button" disabled="disabled">
+      <div class="pc-button pc-box-flex pc-flex-row" disabled="disabled">
         <div class="wrap">
           <i class="fab fa-apple"></i>
           <h2>iOS</h2>
@@ -70,7 +70,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .pc-box-flex + .pc-box-flex {
+  .container > .pc-box-flex + .pc-box-flex {
     margin-top:1rem;
   }
 

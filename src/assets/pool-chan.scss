@@ -6,18 +6,10 @@
   flex-direction:column;
 }
 
-.pc-box-flex {
-  width:100%;
-  display:flex;
-}
-
 .pc-button {
   position:relative;
-  display:flex;
-  flex:1;
-  flex-direction:row;
+  display:inline-block;
   width:100%;
-  margin:0 12px;
   padding:12px;
   vertical-align:middle;
   border:1px solid $oc-blue-3;
@@ -26,6 +18,7 @@
   overflow:hidden;
   box-shadow:0 4px 4px $oc-gray-2;
   box-sizing:border-box;
+  text-align:center;
 
   transition:all 0.132s ease-in-out;
 
@@ -63,5 +56,30 @@
   // Size
   &.pc-button-large {
     height:360px;
+  }
+
+  &.pc-button-reverse {
+    display:inline-block;
+    margin:16px 0 0;
+    text-align:center;
+    color:#fff;
+    font-weight:600;
+    text-decoration:none;
+    font-size:18px;
+
+    background-color:$oc-blue-4;
+  }
+}
+
+.pc-box-flex {
+  width:100%;
+  display:flex;
+
+  .pc-button {
+    margin:0 12px;
+  }
+
+  &.pc-flex-column .pc-button {
+    margin:12px 0;
   }
 }

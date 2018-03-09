@@ -8,7 +8,7 @@
 
     <h2>어떤 기계로 마이닝 하실건가요?</h2>
     <div class="pc-box-flex pc-flex-row">
-      <div class="pc-button pc-button-large"
+      <div class="pc-box-flex pc-flex-row pc-button pc-button-large"
            @click.prevent="AcceptCurrentEnv"
            :disabled="usingOS === false">
         <div class="wrap">
@@ -19,7 +19,8 @@
           <span class="description">자동으로 설정이 맞춰집니다.</span>
         </div>
       </div>
-      <div class="pc-button pc-button-large" @click.prevent="$parent.$parent.setup.currentStep = 1">
+      <div class="pc-box-flex pc-flex-row pc-button pc-button-large"
+           @click.prevent="$parent.$parent.setup.currentStep = 1">
         <div class="wrap">
           <i class="fas fa-desktop"></i>
           <h3>다른 임의의 기기</h3>
@@ -41,7 +42,7 @@ export default {
     const currentOS = navigator.platform
 
     // Microsoft Windows
-    if (['Win32', 'Win64'].indexOf(currentOS)) {
+    if (['Win32', 'Win64'].indexOf(currentOS) >= 0) {
       this.usingOS = 'windows'
     // Apple Mac OSX
     } else if (currentOS === 'MacIntel') {
