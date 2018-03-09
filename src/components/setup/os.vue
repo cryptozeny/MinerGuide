@@ -76,6 +76,7 @@ export default {
 
   .pc-button {
     height:180px;
+    color:$oc-gray-9;
 
     .fab, .fas {
       font-size:24pt;
