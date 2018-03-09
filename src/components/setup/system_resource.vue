@@ -15,12 +15,28 @@
                    max="64"
                    step="1" />
           </label>
+          <div class="pc-box-flex pc-flex-column">
+            <a href="#"
+               class="pc-button"
+               @click.prevent="proccessThreadList('allOn')">전체 활성화</a>
+            <a href="#"
+               class="pc-button"
+               @click.prevent="proccessThreadList('Off01')">0/1코어 제외 전부적용</a>
+            <a href="#"
+               class="pc-button"
+               @click.prevent="proccessThreadList('half')">코어 절반(50%) 적용</a>
+            <a href="#"
+               class="pc-button"
+               @click.prevent="proccessThreadList('half-reverse')">뒤에서부터 코어 절반(50%) 적용</a>
+            <a href="#"
+               class="pc-button"
+               @click.prevent="proccessThreadList('allOff')">전체 비활성화</a>
+          </div>
         </form>
       </div>
 
       <div class="thread_display">
         <h2>스레드 활용 설정</h2>
-        {{ usingThread }}
         <table class="thread_counter" :class="'table_size-' + targetBoardSize">
           <tbody>
             <tr v-for="row in targetBoardSize" :key="row">
@@ -39,11 +55,15 @@
       </div>
     </div>
 
-    <a href="#" class="pc-button">다음 과정으로 진행하기</a>
+    <a href="#"
+       class="pc-button pc-button-reverse"
+       @click.prevent="moveNextStep">다음 과정으로 진행하기</a>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+
 export default {
   data () {
     return {
@@ -74,21 +94,68 @@ export default {
     },
     proccessThreadList (type) {
       switch (type) {
-        case 'all':
+        case 'allOn':
+          for (let i = 0; i < this.usingThread.length; i++) {
+            Vue.set(this.usingThread, i, true)
+          }
+          break
+
+        case 'allOff':
+          for (let i = 0; i < this.usingThread.length; i++) {
+            Vue.set(this.usingThread, i, false)
+          }
           break
 
         case 'Off01':
+          for (let i = 0; i < this.usingThread.length; i++) {
+            if (i === 0 || i === 1) {
+              Vue.set(this.usingThread, i, false)
+            } else {
+              Vue.set(this.usingThread, i, true)
+            }
+          }
           break
 
         case 'half':
+          for (let i = 0; i < this.usingThread.length; i++) {
+            if (i < this.usingThread.length / 2) {
+              Vue.set(this.usingThread, i, true)
+            } else {
+              Vue.set(this.usingThread, i, false)
+            }
+          }
           break
 
         case 'half-reverse':
+          for (let i = 0; i < this.usingThread.length; i++) {
+            if (i < this.usingThread.length / 2) {
+              Vue.set(this.usingThread, i, false)
+            } else {
+              Vue.set(this.usingThread, i, true)
+            }
+          }
+          break
+
+        case 'bool2int':
+          for (let i = 0; i < this.usingThread.length; i++) {
+            if (this.usingThread[i] === true) {
+              Vue.set(this.usingThread, i, 1)
+            } else {
+              Vue.set(this.usingThread, i, 0)
+            }
+          }
           break
       }
     },
     moveNextStep () {
-
+      if (this.usingThread.indexOf(true) < 0) {
+        alert('코어가 활성화되어야만 마이닝을 할 수 있습니다. 코어 설정을 다시 확인해주세요')
+        return false
+      } else {
+        this.proccessThreadList('bool2int')
+        this.$parent.$parent.result.CPUAffinity = '0x' + parseInt(this.usingThread.join(''), 2).toString(16).toUpperCase()
+        this.$parent.$parent.setup.currentStep = 4
+      }
     }
   },
   watch: {
@@ -109,6 +176,7 @@ export default {
 <style lang="scss" scoped>
   .pc-box-flex > div {
     width:100%;
+    padding:12px;
   }
 
   .thread_counter {
@@ -203,17 +271,5 @@ export default {
         left:5px;
       }
     }
-  }
-
-  .pc-button {
-    display:inline-block;
-    margin:16px 0 0;
-    text-align:center;
-    color:#fff;
-    font-weight:600;
-    text-decoration:none;
-    font-size:18px;
-
-    background-color:$oc-blue-4;
   }
 </style>
