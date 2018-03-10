@@ -5,6 +5,18 @@ body {
   font-family:'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
   height:100%;
   min-height:100%;
+
+  /* Adjust font size */
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  /* Font varient */
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+  /* Smoothing */
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
