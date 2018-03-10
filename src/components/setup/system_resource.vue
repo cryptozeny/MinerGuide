@@ -154,7 +154,7 @@ export default {
       } else {
         this.proccessThreadList('bool2int')
         this.$parent.$parent.result.CPUAffinity = '0x' + parseInt(this.usingThread.join(''), 2).toString(16).toUpperCase()
-        this.$parent.$parent.setup.currentStep = 4
+        this.$parent.$parent.setup.currentStep = 3
       }
     }
   },
