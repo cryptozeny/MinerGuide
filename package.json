@@ -13,6 +13,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "html-loader": "^0.5.5",
+    "markdown-loader": "^2.0.2",
     "marked": "^0.3.17",
     "node-sass": "^4.7.2",
     "normalize.css": "^8.0.0",
