@@ -61,7 +61,7 @@ export default {
         return false
       }
 
-      this.$parent.$parent.result.OS = navigator.platform
+      this.$parent.$parent.result.OS = this.usingOS
       this.$parent.$parent.setup.availableCPUThread = navigator.hardwareConcurrency
       this.$parent.$parent.setup.currentStep = 2
     }
