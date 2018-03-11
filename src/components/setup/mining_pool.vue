@@ -53,9 +53,17 @@ export default {
       'workerPw': ''
     }
   },
-  mehtods: {
+  methods: {
     moveNextStep () {
-      
+      if (this.stratumUrl !== '' && this.workerId !== '') {
+        this.$parent.$parent.result.pool.url = this.stratumUrl
+        this.$parent.$parent.result.pool.worker = this.workerId
+        this.$parent.$parent.result.pool.password = this.workerPw
+
+        this.$parent.$parent.currentAction = 'guide'
+      } else {
+        alert('모든 항목을 채우신 뒤에 다시 시도해주세요')
+      }
     }
   }
 }
@@ -95,6 +103,12 @@ export default {
     td {
       padding:12px 16px;
       border-bottom:1px solid $oc-gray-3;
+
+      & > input[type="text"] {
+        padding:6px 12px;
+        border:1px solid $oc-gray-6;
+        border-radius:3px;
+      }
     }
 
     td > span.description {
