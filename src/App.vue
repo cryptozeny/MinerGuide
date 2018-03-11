@@ -31,6 +31,7 @@ export default {
   },
   data () {
     return {
+      Lang: 'ko',
       currentAction: 'setup',
       setup: {
         currentStep: 0,

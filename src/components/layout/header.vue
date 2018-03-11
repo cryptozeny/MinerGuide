@@ -6,6 +6,7 @@
         <ul>
           <li><a href="#">Help</a></li>
           <li><a href="#">About</a></li>
+          <li><a href="#">Select Language</a></li>
         </ul>
       </nav>
     </div>
