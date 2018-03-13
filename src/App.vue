@@ -16,10 +16,10 @@ import Guides from './components/guide/default'
 import Footer from './components/layout/footer'
 
 import 'normalize.css'
-import './assets/pool-chan.scss'
-import './assets/style.scss'
-import '../static/css/Spoqa-Han-Sans.css'
-import '../static/css/fontawesome-all.min.css'
+import './assets/css/pool-chan.scss'
+import './assets/css/style.scss'
+import './assets/css/Spoqa-Han-Sans.css'
+import './assets/css/fontawesome-all.min.css'
 
 export default {
   name: 'MinerGuide',
