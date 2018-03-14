@@ -6,33 +6,33 @@
     <div class="pc-box-flex pc-flex-row">
       <div class="selects">
         <h2>정보 입력</h2>
+        <span class="label">CPU 전체 코어(스레드) 개수</span>
         <form>
-          <label>
-            CPU 전체 코어(스레드) 개수
-            <input type="number"
-                   v-model="availableCPUThread"
-                   min="1"
-                   max="64"
-                   step="1" />
-          </label>
-          <div class="pc-box-flex pc-flex-column">
-            <a href="#"
-               class="pc-button"
-               @click.prevent="proccessThreadList('allOn')">전체 활성화</a>
-            <a href="#"
-               class="pc-button"
-               @click.prevent="proccessThreadList('Off01')">0/1코어 제외 전부적용</a>
-            <a href="#"
-               class="pc-button"
-               @click.prevent="proccessThreadList('half')">코어 절반(50%) 적용</a>
-            <a href="#"
-               class="pc-button"
-               @click.prevent="proccessThreadList('half-reverse')">뒤에서부터 코어 절반(50%) 적용</a>
-            <a href="#"
-               class="pc-button"
-               @click.prevent="proccessThreadList('allOff')">전체 비활성화</a>
-          </div>
+          <button @click.prevent="">&minus;</button>
+          <input type="number"
+                 v-model="availableCPUThread"
+                 min="1"
+                 max="64"
+                 step="1" />
+          <button @click.prevent="">&plus;</button>
         </form>
+        <div class="pc-box-flex pc-flex-column">
+          <a href="#"
+             class="pc-button"
+             @click.prevent="proccessThreadList('allOn')">전체 활성화</a>
+          <a href="#"
+             class="pc-button"
+             @click.prevent="proccessThreadList('Off01')">0/1코어 제외 전부적용</a>
+          <a href="#"
+             class="pc-button"
+             @click.prevent="proccessThreadList('half')">코어 절반(50%) 적용</a>
+          <a href="#"
+             class="pc-button"
+             @click.prevent="proccessThreadList('half-reverse')">뒤에서부터 코어 절반(50%) 적용</a>
+          <a href="#"
+             class="pc-button"
+             @click.prevent="proccessThreadList('allOff')">전체 비활성화</a>
+        </div>
       </div>
 
       <div class="thread_display">
@@ -160,14 +160,21 @@ export default {
   },
   watch: {
     'availableCPUThread': function (val) {
-      if (val > 64) {
-        this.availableCPUThread = 64
-      } else if (val < 1) {
-        this.availableCPUThread = 1
-      }
+      if (typeof val === 'string') {
+        if (val.substring(0, 1) === '0') {
+          this.availableCPUThread = val.substring(1)
+        }
 
-      this.getBoardSize(val)
-      this.makeThreadList()
+        if (val > 64) {
+          this.availableCPUThread = 64
+        } else if (val < 1) {
+          this.availableCPUThread = 1
+        }
+        this.getBoardSize(val)
+        this.makeThreadList()
+      } else {
+        this.availableCPUThread = 0
+      }
     }
   }
 }
