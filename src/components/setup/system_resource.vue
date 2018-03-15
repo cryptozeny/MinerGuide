@@ -6,15 +6,17 @@
     <div class="pc-box-flex pc-flex-row">
       <div class="selects">
         <h2>정보 입력</h2>
-        <span class="label">CPU 전체 코어(스레드) 개수</span>
-        <form>
-          <button @click.prevent="">&minus;</button>
-          <input type="number"
-                 v-model="availableCPUThread"
-                 min="1"
-                 max="64"
-                 step="1" />
-          <button @click.prevent="">&plus;</button>
+        <form class="pc-box-flex pc-flex-row">
+          <span class="label">CPU의 전체 코어(스레드) 개수</span>
+          <div class="wrap">
+            <button @click.prevent="adjustThreadValue('decrease')">-</button>
+            <input type="number"
+                   v-model="availableCPUThread"
+                   min="1"
+                   max="64"
+                   step="1" />
+            <button @click.prevent="adjustThreadValue('increase')">&plus;</button>
+          </div>
         </form>
         <div class="pc-box-flex pc-flex-column">
           <a href="#"
@@ -90,6 +92,19 @@ export default {
         this.targetBoardSize = 2
       } else {
         this.targetBoardSize = 8
+      }
+    },
+    adjustThreadValue (type) {
+      console.log(typeof this.availableCPUThread)
+
+      switch (type) {
+        case 'increase':
+          this.availableCPUThread = parseInt(this.availableCPUThread) + 1 + ''
+          break
+
+        case 'decrease':
+          this.availableCPUThread = parseInt(this.availableCPUThread) - 1 + ''
+          break
       }
     },
     proccessThreadList (type) {
@@ -184,6 +199,63 @@ export default {
   .pc-box-flex > div {
     width:100%;
     padding:12px;
+  }
+
+  .selects > form {
+    margin:0;
+    padding:0;
+    display:flex;
+    border:1px solid $oc-blue-5;
+    border-radius:16px;
+    overflow:hidden;
+
+    span.label {
+      display:inline-block;
+      background-color:$oc-blue-5;
+      color:#fff;
+      width:100%;
+      text-align:right;
+      padding:12px;
+    }
+
+    .wrap {
+      width:230px;
+      padding:0;
+      font-size:0;
+
+      button {
+        margin:0;
+        padding:0;
+        width:24px;
+        height:100%;
+        border:0;
+        font-size:16px;
+        vertical-align:middle;
+        background-color:transparent;
+        font-weight:bold;
+        color:$oc-blue-7;
+      }
+
+      input[type="number"] {
+        -moz-appearance:textfield;
+        margin:0;
+        padding:0;
+        border:0;
+        height:100%;
+        font-size:16px;
+        text-align:center;
+        width:96px;
+        margin:0;
+        vertical-align:middle;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance:none;
+          appearance:none;
+          margin:0;
+        }
+      }
+    }
   }
 
   .thread_counter {
