@@ -1,21 +1,21 @@
 <template>
   <div class="container">
-    <h1>마이닝 풀 설정</h1>
-    <p>마이닝풀은 여러분이 채굴을 더욱 더 효율적으로 하기 위한 공간입니다.<br />마이너가 모이면 모일수록 블록 발견속도가 빨라지며, 받을 수 있는 보상도 혼자서 하는 마이닝(솔로 마이닝이라 부릅니다)보다 비교적 높아지게 됩니다.</p>
-    <p>마이닝풀의 종류는 크게 계정을 등록하여 진행하는 MPOS, 계정을 등록하지 않고 지갑 주소만을 이용하여 채굴하는 NOMP가 있습니다.</p>
-    <p>이 마이닝 풀에서는 개별적으로 관리하기 위하여 채굴기기 1개당 '워커'라는 단위로 관리합니다.<br />MPOS종류의 마이닝풀의 경우 워커 아이디/워커 비밀번호가 요구되고, NOMP종류의 마이닝풀의 경우 마이닝한 결과물을 받기위한 BitZeny 지갑주소를 워커 아이디 항목에 적어주시면 됩니다.</p>
+    <h1>{{ $t('setup_mining_header_title') }}</h1>
+    <p v-html="$t('setup_mining_header_description_1')"></p>
+    <p v-html="$t('setup_mining_header_description_2')"></p>
+    <p v-html="$t('setup_mining_header_description_3')"></p>
 
     <form @submit.prevent="moveNextStep">
       <table>
         <tbody>
           <tr>
-            <td class="pc-table-label">마이닝 풀 주소</td>
+            <td class="pc-table-label">{{ $t('setup_mining_form_url') }}</td>
             <td>
               <input type="text"
                      name="miningPoolUrl"
                      v-model="stratumUrl"
                      required/>
-              <span class="description">마이닝 풀의 주소는 접속하신 마이닝 풀에 적혀있습니다.</span>
+              <span class="description">{{ $t('setup_mining_form_url_description') }}</span>
             </td>
           </tr>
           <tr>

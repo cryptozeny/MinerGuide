@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <h1>자원 사용량 설정</h1>
-    <p>해당 과정은 마이닝에 있어 CPU(중앙 처리 장치)를 얼마나 사용할것인지 결정하는 과정입니다.<br />CPU 스레드 사용량이 줄어들면 마이닝 효율이 떨어지며, CPU 스레드 사용량이 올라가면 마이닝 효율이 올라가는 대신 마이닝 외의 컴퓨터 작업의 진행이 힘들어질 수 있습니다.</p>
+    <h1>{{ $t('setup_resource_header_title') }}</h1>
+    <p v-html="$t('setup_resource_header_description')"></p>
 
     <div class="pc-box-flex pc-flex-row">
       <div class="selects">
-        <h2>정보 입력</h2>
+        <h2>{{ $t('setup_resource_insert_thread') }}</h2>
         <form class="pc-box-flex pc-flex-row">
-          <span class="label">CPU의 전체 코어(스레드) 개수</span>
+          <span class="label">{{ $t('setup_resource_thread_count') }}</span>
           <div class="wrap">
             <button @click.prevent="adjustThreadValue('decrease')">-</button>
             <input type="number"
@@ -21,24 +21,24 @@
         <div class="pc-box-flex pc-flex-column">
           <a href="#"
              class="pc-button"
-             @click.prevent="proccessThreadList('allOn')">전체 활성화</a>
+             @click.prevent="proccessThreadList('allOn')">{{ $t('setup_resource_preset_1') }}</a>
           <a href="#"
              class="pc-button"
-             @click.prevent="proccessThreadList('Off01')">0/1코어 제외 전부적용</a>
+             @click.prevent="proccessThreadList('Off01')">{{ $t('setup_resource_preset_2') }}</a>
           <a href="#"
              class="pc-button"
-             @click.prevent="proccessThreadList('half')">코어 절반(50%) 적용</a>
+             @click.prevent="proccessThreadList('half')">{{ $t('setup_resource_preset_3') }}</a>
           <a href="#"
              class="pc-button"
-             @click.prevent="proccessThreadList('half-reverse')">뒤에서부터 코어 절반(50%) 적용</a>
+             @click.prevent="proccessThreadList('half-reverse')">{{ $t('setup_resource_preset_4') }}</a>
           <a href="#"
              class="pc-button"
-             @click.prevent="proccessThreadList('allOff')">전체 비활성화</a>
+             @click.prevent="proccessThreadList('allOff')">{{ $t('setup_resource_preset_5') }}</a>
         </div>
       </div>
 
       <div class="thread_display">
-        <h2>스레드 활용 설정</h2>
+        <h2>{{ $t('setup_resource_thread_using') }}</h2>
         <table class="thread_counter" :class="'table_size-' + targetBoardSize">
           <tbody>
             <tr v-for="row in targetBoardSize" :key="row">
@@ -59,7 +59,7 @@
 
     <a href="#"
        class="pc-button pc-button-reverse"
-       @click.prevent="moveNextStep">다음 과정으로 진행하기</a>
+       @click.prevent="moveNextStep">{{ $t('setup_resource_nextstep') }}</a>
   </div>
 </template>
 
@@ -164,7 +164,7 @@ export default {
     },
     moveNextStep () {
       if (this.usingThread.indexOf(true) < 0) {
-        alert('코어가 활성화되어야만 마이닝을 할 수 있습니다. 코어 설정을 다시 확인해주세요')
+        alert(this.$t('setup_resource_nothread_alert'))
         return false
       } else {
         this.proccessThreadList('bool2int')

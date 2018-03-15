@@ -4,11 +4,22 @@ import Vue from 'vue'
 import App from './App'
 import VueI18n from 'vue-i18n'
 
+import StringsKo from './lang/ko.js'
+
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
 Vue.use(VueI18n)
+
+const i18n = new VueI18n({
+  locale: 'ko', // set locale
+  messages: {
+    'ko': StringsKo
+  }
+})
+
+/* eslint-disable no-new */
 new Vue({
+  i18n,
   el: '#app',
   components: { App },
   template: '<App/>'

@@ -1,31 +1,28 @@
 <template>
   <div class="container">
-    <h1>환영합니다!</h1>
-    <p>
-      MinerGuide는 BitZeny를 채굴할 수 있는 CPUMiner 프로그램의 설정을 도와드리기 위한 웹페이지입니다.<br />
-      해당 웹페이지에 나온 과정대로 설정하시면 손쉽게 설정이 가능합니다.
-    </p>
+    <h1>{{ $t('setup_introduce_welcome_title') }}</h1>
+    <p v-html="$t('setup_introduce_welcome_content')"></p>
 
-    <h2>어떤 기계로 마이닝 하실건가요?</h2>
+    <h2>{{ $t('setup_introduce_request_device') }}</h2>
     <div class="pc-box-flex pc-flex-row">
       <div class="pc-box-flex pc-flex-row pc-button pc-button-large"
            @click.prevent="AcceptCurrentEnv"
            :disabled="usingOS === false"
-           data-disabled-reason="해당 운영체제/기기에 대한 가이드는 준비중이거나 마이닝이 불가능합니다">
+           :data-disabled-reason="$t('해당 운영체제/기기에 대한 가이드는 준비중이거나 마이닝이 불가능합니다')">
         <div class="wrap">
           <i v-if="usingOS !== false"
              class="fab"
              :class="'fa-' + usingOS"></i>
-          <h3>현재 홈페이지에 접속한 기기</h3>
-          <span class="description">자동으로 설정이 맞춰집니다.</span>
+          <h3>{{ $t('setup_introduce_autoselect_title') }}</h3>
+          <span class="description">{{ $t('setup_introduce_autoselect_description') }}</span>
         </div>
       </div>
       <div class="pc-box-flex pc-flex-row pc-button pc-button-large"
            @click.prevent="$parent.$parent.setup.currentStep = 1">
         <div class="wrap">
           <i class="fas fa-desktop"></i>
-          <h3>다른 임의의 기기</h3>
-          <span class="description">윈도우, 리눅스, OSX, 안드로이드, Raspberry Pi 등</span>
+          <h3>{{ $t('setup_introduce_manual_title') }}</h3>
+          <span class="description">{{ $t('setup_introduce_manual_description') }}</span>
         </div>
       </div>
     </div>

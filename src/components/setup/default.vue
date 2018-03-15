@@ -3,7 +3,7 @@
     <a id="setupStepReset"
        href="#"
        v-if="$parent.setup.currentStep !== 0"
-       @click.prevent="returnBeforeStep">이전 단계로 돌아가기</a>
+       @click.prevent="returnBeforeStep">{{ $t("setup_header_prevstep") }}</a>
     <transition name="setup">
       <Introduce v-if="$parent.setup.currentStep === 0" />
       <Os v-if="$parent.setup.currentStep === 1" />

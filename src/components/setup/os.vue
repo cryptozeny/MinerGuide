@@ -1,14 +1,14 @@
 <template>
   <div class="container">
-    <h1>이용할 운영체제를 선택해주세요</h1>
-    <p>운영체제를 선택하시면 기기도 같이 선택됩니다. 운영체제를 모르신다면 운영체제 아래에 적혀있는 대표기기를 통해 확인해주세요.</p>
+    <h1>{{ $t('setup_os_header_title') }}</h1>
+    <p>{{ $t('setup_os_header_description') }}</p>
 
     <div class="pc-box-flex pc-flex-row">
       <div class="pc-button pc-box-flex pc-flex-row" @click="changeOS('windows')">
         <div class="wrap">
           <i class="fab fa-windows"></i>
           <h2>Windows</h2>
-          <p>PC, 노트북, Windows 운영체제의 서버</p>
+          <p>{{ $t('setup_os_windows') }}</p>
         </div>
       </div>
 
@@ -16,7 +16,7 @@
         <div class="wrap">
           <i class="fab fa-apple"></i>
           <h2>Mac OS X</h2>
-          <p>iMac, Macbook, Mac Mini, Mac Server, Mac Pro등</p>
+          <p>{{ $t('setup_os_osx') }}</p>
         </div>
       </div>
 
@@ -24,7 +24,7 @@
         <div class="wrap">
           <i class="fab fa-linux"></i>
           <h2>Linux</h2>
-          <p>Fedora, Ubuntu, CentOS, Archlinux, CoreOS등의 Linux전용 운영체제를 사용하는 PC/서버</p>
+          <p>{{ $t('setup_os_linux') }}</p>
         </div>
       </div>
     </div>
@@ -32,7 +32,7 @@
     <div class="pc-box-flex pc-flex-row">
       <div class="pc-button pc-box-flex pc-flex-row"
            disabled="disabled"
-           data-disabled-reason="해당 운영체제에 대한 가이드는 준비중입니다">
+           :data-disabled-reason="$t('setup_os_prepare')">
         <div class="wrap">
           <h2>Raspberry Pi</h2>
           <p>Raspberry Pi 2, Raspberry Pi 2 Model B, Raspberry Pi 3, Raspberry Pi 3 Model B</p>
@@ -41,7 +41,7 @@
 
       <div class="pc-button pc-box-flex pc-flex-row"
            disabled="disabled"
-           data-disabled-reason="해당 운영체제에 대한 가이드는 준비중입니다">
+           :data-disabled-reason="$t('setup_os_prepare')">
         <div class="wrap">
           <i class="fab fa-android"></i>
           <h2>Android</h2>
@@ -51,7 +51,7 @@
 
       <div class="pc-button pc-box-flex pc-flex-row"
            disabled="disabled"
-           data-disabled-reason="해당 운영체제는 현재 마이닝이 불가능합니다.">
+           :data-disabled-reason="$t('setup_os_prepare')">
         <div class="wrap">
           <i class="fab fa-apple"></i>
           <h2>iOS</h2>
@@ -60,7 +60,7 @@
       </div>
     </div>
 
-    <p class="exclude-reason">해당 목록에 없는 운영체제는 아직 마이너가 개발되지 않았거나, 마이너를 구축하기에 번거롭거나, 마이닝 효율이 떨어지기때문에 목록에 포함되지 않았습니다.</p>
+    <p class="exclude-reason">{{ $t('setup_os_exclude') }}</p>
   </div>
 </template>
 
