@@ -19,27 +19,27 @@
             </td>
           </tr>
           <tr>
-            <td class="pc-table-label">마이닝 풀 워커 아이디<span class="option">혹은 BitZeny 지갑 주소</span></td>
+            <td class="pc-table-label">{{ $t('setup_mining_form_id') }}<span class="option">{{ $t('setup_mining_form_id_optional') }}</span></td>
             <td>
               <input type="text"
                      name="miningPoolWorkerID"
                      v-model="workerId"
                      required />
-              <span class="description">마이닝 풀 워커 아이디는 풀의 이용방법에 따라 다릅니다.<br />가이드가 적혀있지 않은경우 풀 관리자에게 문의해주세요.</span>
+              <span class="description" v-html="$t('setup_mining_form_id_description')"></span>
             </td>
           </tr>
           <tr>
-            <td class="pc-table-label">마이닝 풀 워커 비밀번호<span class="option">(옵션)</span></td>
+            <td class="pc-table-label">{{ $t('setup_mining_form_pw') }}<span class="option">{{ $t('setup_mining_form_pw_optional') }}</span></td>
             <td>
               <input type="text"
                      name="miningPoolWorkerPW"
                      v-model="workerPw" />
-              <span class="description">마이닝 풀 워커 비밀번호는 워커를 추가로 생성/관리할 수 있는 마이닝 풀에서만 적용됩니다.</span>
+              <span class="description" v-html="$t('setup_mining_form_pw_description')"></span>
             </td>
           </tr>
         </tbody>
       </table>
-      <button class="pc-button pc-button-reverse" type="submit">설정 완료하기</button>
+      <button class="pc-button pc-button-reverse" type="submit">{{ $t('setup_mining_form_submit') }}</button>
     </form>
   </div>
 </template>

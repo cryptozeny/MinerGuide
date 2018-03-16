@@ -8,7 +8,7 @@
       <div class="pc-box-flex pc-flex-row pc-button pc-button-large"
            @click.prevent="AcceptCurrentEnv"
            :disabled="usingOS === false"
-           :data-disabled-reason="$t('해당 운영체제/기기에 대한 가이드는 준비중이거나 마이닝이 불가능합니다')">
+           :data-disabled-reason="$t('setup_introduce_autoselect_disable')">
         <div class="wrap">
           <i v-if="usingOS !== false"
              class="fab"

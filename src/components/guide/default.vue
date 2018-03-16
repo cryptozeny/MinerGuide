@@ -1,18 +1,10 @@
 <template>
   <div class="container">
-    <h1>마이너 설치 및 실행하기</h1>
-    <p>마이너를 설치하기 전의 준비과정이 모두 끝났습니다. 아래의 설치 및 실행과정을 통하여 마이너를 쉽게 설치 및 실행할 수 있습니다.</p>
+    <h1>{{ $t('guide_header_title') }}</h1>
+    <p>{{ $t('guide_header_content') }}</p>
 
     <div class="markdown-content"
          v-html="importMarkdown('download')">
-    </div>
-
-    <div class="hero">
-      <h2>설정파일 다운로드</h2>
-      <p>꼭 해당 설정파일을 마이너 프로그램이 들어있는 폴더와 같은곳에 넣어주세요</p>
-      <a class="pc-button"
-         :href="'data:text/json;charset=utf-8,' + returnConfigJSON()"
-         download="config.json">설정 파일 다운로드</a>
     </div>
 
     <div class="markdown-content"
@@ -45,6 +37,9 @@ export default {
         'algo': 'yescrypt',
         'cpu-affinity': this.$parent.result.CPUAffinity
       }))
+    },
+    returnCommandConfig () {
+      return 
     },
     makeRunScript (isEscape) {
       let ShellScript = './minerd260 --config=config.json'
