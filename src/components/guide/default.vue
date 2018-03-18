@@ -1,48 +1,36 @@
 <template>
-  <div class="container">
-    <h1>{{ $t('guide_header_title') }}</h1>
-    <p>{{ $t('guide_header_content') }}</p>
-
-    <div class="markdown-content"
-         v-html="importMarkdown('download')">
-    </div>
-
-    <div class="markdown-content"
-         v-html="importMarkdown('install')">
-    </div>
-
-    <div class="hero">
-      <p>해당 실행 스크립트를 마이너가 위치할 폴더와 같은곳에 넣어주세요</p>
-      <a class="pc-button"
-         :href="'data:application/octet-stream;charset=utf-8,' + makeRunScript(true)"
-         :download="makeRunScriptFilename()">실행스크립트 파일 다운로드</a>
-      <p>실행 스크립트는 운영체제에 직접적인 영향을 줄 수 있습니다. 꼭 내용이 아래와 일치하는지 확인 후 다운로드를 진행하세요</p>
-      <code>{{ makeRunScript(false) }}</code>
-    </div>
-
-    <div class="markdown-content"
-         v-html="importMarkdown('run')">
-    </div>
-  </div>
+  <section id="guide">
+    <WindowsGuide v-if="$parent.result.OS === 'windows'" />
+  </section>
 </template>
 
 <script>
+import WindowsGuide from './windows.vue'
+
 export default {
-  methods: {
-    returnConfigJSON () {
-      return escape(JSON.stringify({
+  data() {
+    return {
+      result: {
         'url': this.$parent.result.pool.url,
         'user': this.$parent.result.pool.worker,
         'pass': this.$parent.result.pool.password,
         'algo': 'yescrypt',
         'cpu-affinity': this.$parent.result.CPUAffinity
-      }))
+      }
+    }
+  },
+  components: {
+    WindowsGuide
+  },
+  methods: {
+    returnConfigJSON () {
+      return escape(JSON.stringify(this.result))
     },
     returnCommandConfig () {
-      return 
+      return `-a ${this.result.algo} -o ${this.result.url} -u ${this.result.user} -p ${this.result.pass} --cpu-affinity ${this.result['cpu-affinity']}`
     },
     makeRunScript (isEscape) {
-      let ShellScript = './minerd260 --config=config.json'
+      let ShellScript = './minerd260 ' + this.returnCommandConfig() 
 
       if (this.$parent.result.OS === 'windows') {
         ShellScript = ShellScript.substring(2)
