@@ -8,7 +8,7 @@
 import WindowsGuide from './windows.vue'
 
 export default {
-  data() {
+  data () {
     return {
       result: {
         'url': this.$parent.result.pool.url,
@@ -30,7 +30,7 @@ export default {
       return `-a ${this.result.algo} -o ${this.result.url} -u ${this.result.user} -p ${this.result.pass} --cpu-affinity ${this.result['cpu-affinity']}`
     },
     makeRunScript (isEscape) {
-      let ShellScript = './minerd260 ' + this.returnCommandConfig() 
+      let ShellScript = './minerd260 ' + this.returnCommandConfig()
 
       if (this.$parent.result.OS === 'windows') {
         ShellScript = ShellScript.substring(2)
