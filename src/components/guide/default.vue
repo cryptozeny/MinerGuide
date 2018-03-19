@@ -69,7 +69,7 @@ export default {
 }
 
 .markdown-content code,
-.hero code {
+.download-container code {
   display:inline-block;
   background-color:$oc-gray-6;
   color:#fff;
@@ -79,5 +79,17 @@ export default {
   padding:6px 12px;
   vertical-align:middle;
   border-radius:4px;
+}
+
+.download-container {
+  text-align:center;
+  padding:12px;
+  border:1px solid $oc-gray-3;
+  border-radius:12px;
+  background-color:$oc-gray-1;
+
+  .pc-button {
+    background-color:#fff;
+  }
 }
 </style>
