@@ -10,8 +10,25 @@ Vue.config.productionTip = false
 
 Vue.use(VueI18n)
 
+let locale = 'ko'
+
+switch (navigator.language) {
+  case 'ko-KR':
+    locale = 'ko'
+    break
+
+  case 'ja-JP':
+    locale = 'jp'
+    break
+
+  case 'en-US':
+  default:
+    locale = 'en'
+    break
+}
+
 const i18n = new VueI18n({
-  locale: 'ko', // set locale
+  locale: locale, // set locale
   messages: {
     'ko': StringsKo
   }
