@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Modal v-if="layout.modal.status" />
     <Header />
     <transition name="action">
       <Setup v-if="currentAction === 'setup'" />
@@ -14,6 +15,7 @@ import Header from './components/layout/header'
 import Setup from './components/setup/default'
 import Guides from './components/guide/default'
 import Footer from './components/layout/footer'
+import Modal from './components/layout/modal'
 
 import 'normalize.css'
 import './assets/css/pool-chan.scss'
@@ -27,7 +29,8 @@ export default {
     Header,
     Setup,
     Guides,
-    Footer
+    Footer,
+    Modal
   },
   data () {
     return {
@@ -37,6 +40,12 @@ export default {
         currentStep: 0,
         availableCPUThread: 1,
         usingCPUThread: []
+      },
+      layout: {
+        modal: {
+          status: true,
+          action: './modal/help.vue'
+        }
       },
       result: {
         OS: undefined,
