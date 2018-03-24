@@ -5,6 +5,8 @@ import App from './App'
 import VueI18n from 'vue-i18n'
 
 import StringsKo from './lang/ko.js'
+import StringsJp from './lang/jp.js'
+import StringsEn from './lang/en.js'
 
 Vue.config.productionTip = false
 
