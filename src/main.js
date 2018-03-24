@@ -32,7 +32,9 @@ switch (navigator.language) {
 const i18n = new VueI18n({
   locale: locale, // set locale
   messages: {
-    'ko': StringsKo
+    'ko': StringsKo,
+    'jp': StringsJp,
+    'en': StringsEn
   }
 })
 
