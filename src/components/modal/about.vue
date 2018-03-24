@@ -1,5 +1,5 @@
 <template>
   <div class="modal-container">
-    <h1>Help</h1>
+    <h1>About</h1>
   </div>
 </template>

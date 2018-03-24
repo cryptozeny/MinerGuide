@@ -44,7 +44,7 @@ export default {
       layout: {
         modal: {
           status: true,
-          action: './modal/help.vue'
+          action: 'help'
         }
       },
       result: {
