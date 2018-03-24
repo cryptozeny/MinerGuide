@@ -70,11 +70,60 @@ body {
 
     & > li {
       display:inline-block;
+      position:relative;
       font-size:10pt;
 
       & > a {
         text-decoration:none;
         color:$oc-gray-9;
+        padding:12px 4px;
+        border:1px solid transparent;
+        border-top-left-radius:6px;
+        border-top-right-radius:6px;
+      }
+
+      &.lang:hover > a {
+        border-color:$oc-gray-4;
+        box-shadow:0 0 4px $oc-gray-3;
+      }
+
+      &:hover > ul {
+        display:block;
+      }
+
+      & > ul {
+        display:none;
+        position:absolute;
+        list-style:none;
+        margin:8px 0 0;
+        padding:0px 0 0;
+        width:100%;
+        background-color:#fff;
+        border:1px solid $oc-gray-4;
+        box-sizing:border-box;
+        border-top-color:transparent;
+        box-shadow:0 4px 4px $oc-gray-3;
+        border-bottom-left-radius:6px;
+        border-bottom-right-radius:6px;
+
+        & > li {
+          display:inline-block;
+          width:100%;
+        }
+
+        a {
+          display:block;
+          text-align:center;
+          padding:9px 0;
+          text-decoration:none;
+          color:$oc-gray-9;
+          font-weight:400;
+          font-size:14px;
+        }
+
+        & > li.active a {
+          font-weight:bold;
+        }
       }
     }
 
